@@ -29,6 +29,11 @@
   @yield('style')
 
   <style>
+    @font-face {
+      font-family: font_hanuman;
+      src: url('{{asset("fonts/Hanuman Version 2.00.ttf")}}');
+    }
+
     .font-moul {
       font-family: 'Moul', cursive;
     }
@@ -38,15 +43,15 @@
     }
 
     .font-sidebar {
-      font-family: 'Suwannaphum', serif;
+      font-family: font_hanuman;
     }
 
     .font-hanuman {
-      font-family: 'Hanuman', serif;
+      font-family: font_hanuman;
     }
 
     .font-size-sidebar {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .tb-header {
@@ -97,9 +102,9 @@
                 <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
                 <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a>
                 <div class="dropdown-divider"></div>
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
                 </form>
               </ul>
@@ -276,9 +281,9 @@
                 <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a>
                 <div class="dropdown-divider"></div>
 
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
                 </form>
               </ul>
@@ -294,7 +299,7 @@
         <nav class="sidebar-nav">
           <ul id="sidebarnav" class="pt-4">
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link " href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu font-hanuman font-size-sidebar">ទំព័រដើម</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link " href="{{route('home',app()->getLocale())}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Dashboard')}}</span></a>
             </li>
 
 
@@ -318,7 +323,7 @@
               <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">សៀវភៅ</span></a>
               <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
-                  <a href="{{route('book.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-numbers"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសៀវភៅ</span></a>
+                  <a href="{{route('book.index',app()->getLocale())}}" class="sidebar-link"><i class="mdi mdi-format-list-numbers"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសៀវភៅ</span></a>
                 </li>
                 <li class="sidebar-item">
                   <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-poll-box"></i><span class="hide-menu font-hanuman font-size-sidebar">ប្រភេទសៀវភៅ</span></a>
@@ -327,7 +332,7 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('user.index')}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសមាជិក</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('user.index',app()->getLocale())}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសមាជិក</span></a>
             </li>
 
 

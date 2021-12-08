@@ -14,7 +14,7 @@
             <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item font-hanuman"><a href="{{route('home')}}">ទំព័រដើម</a></li>
+                        <li class="breadcrumb-item font-hanuman"><a href="{{route('home',app()->getLocale())}}">ទំព័រដើម</a></li>
                         <li class="breadcrumb-item font-hanuman active" aria-current="page">
                             បញ្ជីសមាជិក
                         </li>
@@ -33,16 +33,16 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3 px-3">
                 <button type="button" class="btn btn-success text-white btn-md font-sidebar">
-                    <i class="mdi mdi-plus"></i> បន្ថែមថ្មី
+                    <i class="mdi mdi-plus"></i> {{__('Add New')}}
                 </button>
 
                 <div class="">
 
                     <button type="button" class="btn btn-info text-white btn-md font-sidebar">
-                        <i class="mdi mdi-arrow-down-bold"></i> នាំចូល
+                        <i class="mdi mdi-arrow-down-bold"></i> {{__('Import')}}
                     </button>
                     <button type="button" class="btn btn-info text-white btn-md font-sidebar">
-                        <i class="mdi mdi-arrow-up-bold"></i> នាំចេញ
+                        <i class="mdi mdi-arrow-up-bold"></i> {{__('Export')}}
                     </button>
                 </div>
 
@@ -51,7 +51,7 @@
                 <form class="form d-flex">
                     <div class="row w-100 border pt-3">
                         <div class="form-group row col-md-3 search-block">
-                            <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label">កូដ</label>
+                            <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Code')}}</label>
                             <div class="col-sm-10 code_main_block">
                                 <input type="text" id="search_code" name="search_code" class="form-control font-sidebar" placeholder="បញ្ចូលកូដ" />
                                 <div class="code_search_block d-none">
@@ -62,20 +62,20 @@
                             </div>
                         </div>
                         <div class="form-group row col-md-3 search-block">
-                            <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label">ឈ្មោះ</label>
+                            <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Name')}}</label>
                             <div class="col-sm-10">
                                 <input type="text" name="search_name" class="form-control font-sidebar" placeholder="បញ្ចូលឈ្មោះ" />
                             </div>
                         </div>
                         <div class="form-group row col-md-3 search-block">
-                            <label for="lname" class="col-sm-2 font-sidebar text-end control-label col-form-label">ប្រភេទ</label>
+                            <label for="lname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Type')}}</label>
                             <div class="col-sm-10">
                                 <input type="text" name="search_department" class="form-control font-sidebar" placeholder="បញ្ចូលប្រភេទ" />
                             </div>
                         </div>
                         <div class="col-md-3 p-0">
                             <button type="button" class="btn btn-info text-white btn-md font-sidebar">
-                                <i class="mdi mdi-magnify"></i> ស្វែងរក
+                                <i class="mdi mdi-magnify"></i> {{__('Search')}}
                             </button>
                         </div>
                     </div>
@@ -86,14 +86,14 @@
                 <table id="zero_config" class="table table-bordered">
                     <thead>
                         <tr class="bg-light">
-                            <th class="font-hanuman card-title fs-5">កូដ</th>
-                            <th class="font-hanuman card-title fs-5">ឈ្មោះខ្មែរ</th>
-                            <th class="font-hanuman card-title fs-5">ឈ្មោះឡាតាំង</th>
-                            <th class="font-hanuman card-title fs-5">ភេទ</th>
-                            <th class="font-hanuman card-title fs-5">ប្រភេទសមាជិក</th>
-                            <th class="font-hanuman card-title fs-5">លេខទូរស័ព្ទ</th>
-                            <th class="font-hanuman card-title fs-5">អ៊ីមែល</th>
-                            <th class="font-hanuman card-title fs-5">សកម្មភាព</th>
+                            <th class="font-hanuman card-title"> {{__('Code')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Khmer Name')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Latin Name')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Gender')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Type')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Contact')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Email')}}</th>
+                            <th class="font-hanuman card-title"> {{__('Actions')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@
                             <td>{{$user->code}}</td>
                             <td class="font-hanuman">{{$user->khmer_name}}</td>
                             <td>{{$user->latin_name}}</td>
-                            <td class="font-hanuman">{{$user->gender}}</td>
+                            <td class="font-hanuman">{{__($user->gender)}}</td>
                             <td class="font-hanuman">{{$user->department_name}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->email}}</td>

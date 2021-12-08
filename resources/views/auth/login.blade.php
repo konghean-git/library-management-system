@@ -59,7 +59,7 @@
                             <div class="text-center pt-3 pb-3">
                                 <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
                             </div>
-                            <form class="form-horizontal mt-3" id="loginform" method="POST" action="{{ route('login') }}">
+                            <form class="form-horizontal mt-3" id="loginform" method="POST" action="{{ route('login',app()->getLocale()) }}">
                                 @csrf
                                 <div class="row pb-4">
                                     <div class="col-12">

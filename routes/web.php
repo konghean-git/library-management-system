@@ -7,28 +7,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
 
 Route::get('/push',[UserController::class,'add_users']);
 
-// Route::redirect('/');
-
-Auth::routes();
+Route::redirect('/','en');
 
 
+Route::prefix('{language}')->group(function(){
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Auth::routes();
+    Route::get('/', [HomeController::class,'welcome'])->name('welcome');
+    
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
+    
+        Route::get('/book', [HomeController::class, 'index'])->name('book.index');
+    
+        // Users
+    
+        Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
-
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-    Route::get('/book', [HomeController::class, 'index'])->name('book.index');
-
-    // Users
-
-    Route::get('/users', [UserController::class, 'index'])->name('user.index');
+    });
 });
