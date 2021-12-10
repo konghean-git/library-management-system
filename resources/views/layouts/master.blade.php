@@ -68,6 +68,9 @@
       <div class="lds-pos"></div>
     </div>
   </div>
+  <form action="">
+    <input id="getLocale" type="hidden" value="{{app()->getLocale()}}">
+  </form>
 
 
   <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
@@ -99,15 +102,15 @@
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated w-50" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a>
+                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
+                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
                   <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                     <i class="fa fa-power-off me-1 ms-1"></i>
-                    Logout
+                    {{__('Logout')}}
                   </a>
                 </form>
               </ul>
@@ -280,14 +283,14 @@
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
                 <div class="dropdown-divider"></div>
 
                 <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
                   <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                                                this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> {{__('Logout')}}</a>
                 </form>
               </ul>
             </li>
@@ -333,26 +336,37 @@
                 </li>
               </ul>
             </li>
-
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('user.index',app()->getLocale())}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសមាជិក</span></a>
-            </li>
-
-
-            <li class="sidebar-item">
-              <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu font-hanuman font-size-sidebar">ការកំណត់</span></a>
+              <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu font-hanuman font-size-sidebar">{{ __('Members') }}</span></a>
               <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
-                  <a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-account-settings-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">កំណត់អ្នកប្រើ</span></a>
+                  <a href="{{route('user.index',app()->getLocale())}}" class="sidebar-link"><i class="mdi mdi-format-list-numbers"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Members List')}}</span></a>
                 </li>
                 <li class="sidebar-item">
-                  <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-message-settings-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">កំណត់ប្រព័ន្ធ</span></a>
+                  <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-poll-box"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Department')}}</span></a>
+                </li>
+              </ul>
+            </li>
+            <!-- 
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('user.index',app()->getLocale())}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសមាជិក</span></a>
+            </li> -->
+
+
+            <li class="sidebar-item">
+              <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Setting')}}</span></a>
+              <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                  <a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-account-settings-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Role-Permission')}}</span></a>
+                </li>
+                <li class="sidebar-item">
+                  <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-message-settings-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('System')}}</span></a>
                 </li>
               </ul>
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu font-hanuman font-size-sidebar">របាយការណ៍</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Reports')}}</span></a>
             </li>
           </ul>
         </nav>

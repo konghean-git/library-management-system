@@ -28,7 +28,8 @@ Route::prefix('{language}')->group(function () {
         Route::get('/book', [HomeController::class, 'index'])->name('book.index');
 
         // Users
-
         Route::get('/users', [UserController::class, 'index'])->name('user.index');
+        Route::post('/users', [UserController::class, 'filter_users'])->name('users.filter');
+        Route::get('/users/clear-filter', [UserController::class, 'clear_filter'])->name('users.clear_filter');
     });
 });

@@ -16,7 +16,20 @@
     "Male":"ប្រុស",
     "Female":"ស្រី",
     "Others":"ផ្សេងៗ",
-    "Enter Code":"បញ្ចូលកូដ",
-    "Enter Type":"បញ្ចូលប្រភេទ",
-    "Enter Name":"បញ្ចូលឈ្មោះ"
+    "Enter ":"បញ្ចូល",
+    "Name":"ឈ្មោះ",
+    "Enter Name":"បញ្ចូលឈ្មោះ",
+    "Setting":"ការកំណត់",
+    "Role-Permission":"កំណត់អ្នកប្រើ",
+    "Systems":"កំណត់ប្រព័ន្ធ",
+    "Reports":"របាយការណ៍",
+    "Members":"សមាជិក",
+    "Logout":"ចាកចេញ",
+    "My Profile":"គណនីខ្ញុំ",
+    "Inbox":"សារ",
+    "Books":"សៀវភៅ",
+    "Clear":"សម្អាត",
+    "Books List":"បញ្ជីសៀវភៅ",
+    "Category":"ប្រភេទសៀវភៅ",
+    "Department":"ប្រភេទសមាជិក"
 }
