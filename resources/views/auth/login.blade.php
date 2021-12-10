@@ -21,9 +21,10 @@
             height: 100%;
         }
 
+        /* 
         body {
             background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-        }
+        } */
 
         .main-auth {
             height: 80%;
@@ -34,6 +35,7 @@
 
         .auth-wrapper {
             width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
 
         .auth-box {
@@ -54,10 +56,14 @@
                     </div>
                 </div>
                 <div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
-                    <div class="auth-box bg-dark border-top border-secondary p-5">
+                    <div class="d-none d-md-flex  w-100">
+                        <img class="w-100" src="{{asset('assets/images/undraw-book.png')}}" alt="logo" />
+                    </div>
+
+                    <div class="w-100 auth-box border border-2-light p-5">
                         <div id="loginform">
                             <div class="text-center pt-3 pb-3">
-                                <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
+                                <span class="text-uppercase fs-3 font-bold">LogIn Form</span>
                             </div>
                             <form class="form-horizontal mt-3" id="loginform" method="POST" action="{{ route('login',app()->getLocale()) }}">
                                 @csrf
@@ -67,8 +73,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-success text-white h-100" id="basic-addon1"><i class="mdi mdi-account fs-4"></i></span>
                                             </div>
-                                            <input type="email" name="email" value="{{ old('email') }}" class="form-control form-control-lg @error('email') is-invalid @enderror fs-5" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="" />
-                                            @error('email')
+                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control form-control-lg @error('code') is-invalid @enderror fs-5" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="" />
+                                            @error('code')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -91,12 +97,17 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <div class="pt-3">
-                                                <button class="btn btn-info" id="to-recover" type="button">
-                                                    <i class="mdi mdi-lock fs-4 me-1"></i> Lost password?
-                                                </button>
-                                                <button class="btn btn-success float-end text-white" type="submit">
+                                                <button class="btn btn-success w-100 text-white" type="submit">
                                                     Login
                                                 </button>
+                                            </div>
+                                            <div class="pt-3">
+                                                <a class="btn btn-info float-start" id="to-recover" href="{{route('welcome',app()->getLocale())}}">
+                                                    <i class="mdi mdi-arrow-left-bold"></i> Back
+                                                </a>
+                                                <a class="btn btn-info float-end" id="to-recover" type="button">
+                                                    <i class="mdi mdi-lock"></i> Forgot Password
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

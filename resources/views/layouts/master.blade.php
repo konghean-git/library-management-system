@@ -105,7 +105,10 @@
                 <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
                   <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                                                this.closest('form').submit();">
+                    <i class="fa fa-power-off me-1 ms-1"></i>
+                    Logout
+                  </a>
                 </form>
               </ul>
             </li>
@@ -320,13 +323,13 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">សៀវភៅ</span></a>
+              <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu font-hanuman font-size-sidebar">{{ __('Books') }}</span></a>
               <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
-                  <a href="{{route('book.index',app()->getLocale())}}" class="sidebar-link"><i class="mdi mdi-format-list-numbers"></i><span class="hide-menu font-hanuman font-size-sidebar">បញ្ជីសៀវភៅ</span></a>
+                  <a href="{{route('book.index',app()->getLocale())}}" class="sidebar-link"><i class="mdi mdi-format-list-numbers"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Books List')}}</span></a>
                 </li>
                 <li class="sidebar-item">
-                  <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-poll-box"></i><span class="hide-menu font-hanuman font-size-sidebar">ប្រភេទសៀវភៅ</span></a>
+                  <a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-poll-box"></i><span class="hide-menu font-hanuman font-size-sidebar">{{__('Category')}}</span></a>
                 </li>
               </ul>
             </li>

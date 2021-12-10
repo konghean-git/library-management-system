@@ -53,7 +53,7 @@
                         <div class="form-group row col-md-3 search-block">
                             <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Code')}}</label>
                             <div class="col-sm-10 code_main_block">
-                                <input type="text" id="search_code" name="search_code" class="form-control font-sidebar" placeholder="បញ្ចូលកូដ" />
+                                <input type="text" id="search_code" name="search_code" class="form-control font-sidebar" placeholder="{{ __('Enter Code') }}" />
                                 <div class="code_search_block d-none">
                                     <a class="search_code_result btn btn-sm bg-light w-100 text-start">RRLM0001</a>
                                     <a class="search_code_result btn btn-sm bg-light w-100 text-start">RRLM0002</a>
@@ -64,13 +64,13 @@
                         <div class="form-group row col-md-3 search-block">
                             <label for="fname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Name')}}</label>
                             <div class="col-sm-10">
-                                <input type="text" name="search_name" class="form-control font-sidebar" placeholder="បញ្ចូលឈ្មោះ" />
+                                <input type="text" name="search_name" class="form-control font-sidebar" placeholder="{{ __('Enter Name') }}" />
                             </div>
                         </div>
                         <div class="form-group row col-md-3 search-block">
                             <label for="lname" class="col-sm-2 font-sidebar text-end control-label col-form-label"> {{__('Type')}}</label>
                             <div class="col-sm-10">
-                                <input type="text" name="search_department" class="form-control font-sidebar" placeholder="បញ្ចូលប្រភេទ" />
+                                <input type="text" name="search_department" class="form-control font-sidebar" placeholder="{{ __('Enter Type') }}" />
                             </div>
                         </div>
                         <div class="col-md-3 p-0">

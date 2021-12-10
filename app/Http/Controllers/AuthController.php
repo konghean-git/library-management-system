@@ -12,6 +12,6 @@ class AuthController extends Controller
         if (Auth::check()) {
             Auth::logout();
         }
-        return redirect(route('welcome'));
+        return redirect(route('welcome', app()->getLocale()));
     }
 }
