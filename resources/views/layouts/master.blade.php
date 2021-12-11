@@ -102,12 +102,12 @@
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated w-50" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
-                <a class="dropdown-item px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
+                <a class="dropdown-item font-hanuman px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
+                <a class="dropdown-item font-hanuman px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
-                  <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
+                  <a class="dropdown-item font-hanuman" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                     <i class="fa fa-power-off me-1 ms-1"></i>
                     {{__('Logout')}}
@@ -283,13 +283,13 @@
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
+                <a class="dropdown-item font-hanuman" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
+                <a class="dropdown-item font-hanuman" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
                 <div class="dropdown-divider"></div>
 
                 <form method="POST" action="{{ route('logout',app()->getLocale()) }}">
                   @csrf
-                  <a class="dropdown-item" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
+                  <a class="dropdown-item font-hanuman" href="{{ route('logout',app()->getLocale()) }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();"><i class="fa fa-power-off me-1 ms-1"></i> {{__('Logout')}}</a>
                 </form>
               </ul>

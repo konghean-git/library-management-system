@@ -22,7 +22,7 @@ Route::prefix('{language}')->group(function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 
         Route::get('/book', [HomeController::class, 'index'])->name('book.index');
@@ -30,6 +30,6 @@ Route::prefix('{language}')->group(function () {
         // Users
         Route::get('/users', [UserController::class, 'index'])->name('user.index');
         Route::post('/users', [UserController::class, 'filter_users'])->name('users.filter');
-        Route::get('/users/clear-filter', [UserController::class, 'clear_filter'])->name('users.clear_filter');
+        // Route::get('/users/clear-filter', [UserController::class, 'clear_filter'])->name('users.clear_filter');
     });
 });

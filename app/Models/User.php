@@ -11,7 +11,22 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
+     * Define guarded columns
+     *
+     * @var array
+     */
+    protected $guarded = array('id');
 
     /**
      * The attributes that are mass assignable.

@@ -74,19 +74,18 @@
                             </div>
                         </div>
                         <div class="col-md-2 p-0">
-                            <button id="btnSearch" type="button" class="btn btn-info mb-md-2 text-white btn-md font-sidebar">
+                            <button id="btnSearch" type="button" class="btn btn-info text-white btn-md font-sidebar">
                                 <i class="mdi mdi-magnify"></i> {{__('Search')}}
                             </button>
-                            <button id="btnClearSearch" type="button" class="btn d-none btn-info text-white btn-md font-sidebar">
+                            <a href="{{route('user.index',app()->getLocale())}}" id="btnClearSearch" class="btn d-none btn-info text-white btn-md font-sidebar">
                                 <i class="mdi mdi-delete-empty"></i> {{__('Clear')}}
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </form>
             </div>
-
             <div class="table-responsive mt-2">
-                <table class="table table-bordered">
+                <table id="datatables" class="table table-bordered">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col" class="font-hanuman card-title"> {{__('Code')}}</th>
@@ -104,12 +103,12 @@
                         <tr>
                             <td>{{$user->code}}</td>
                             <td class="font-hanuman">{{$user->khmer_name}}</td>
-                            <td>{{$user->latin_name}}</td>
+                            <td class="font-hanuman">{{$user->latin_name}}</td>
                             <td class="font-hanuman">{{__($user->gender)}}</td>
                             <td class="font-hanuman">{{$user->department_name}}</td>
-                            <td>{{$user->phone}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>
+                            <td class="font-hanuman">{{$user->phone}}</td>
+                            <td class="font-hanuman">{{$user->email}}</td>
+                            <td class="font-hanuman">
                                 <a href="" title="មើល" class="btn btn-success text-white btn-sm font-sidebar">
                                     <i class="mdi mdi-eye"></i>
                                 </a>
@@ -120,12 +119,13 @@
                                     <i class="mdi mdi-delete"></i>
                                 </a>
                             </td>
-
-
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="ui-paginate">
+                {{$users->links('vendor.pagination.bootstrap-4')}}
             </div>
         </div>
     </div>
@@ -134,14 +134,20 @@
 @endsection
 
 @section('script')
-<!-- <script src="{{asset('assets/extra-libs/DataTables/datatables.min.js')}}"></script> -->
+<script src="{{asset('assets/extra-libs/DataTables/datatables.min.js')}}"></script>
 <script>
     $(document).ready(function() {
 
         var locale = $("#getLocale").val();
+        $("#datatables").DataTable({
+            "ordering": false
+        });
+        $('#datatables_info').addClass('d-none');
+        $('#datatables_paginate').addClass('d-none');
 
+        // Event Filter Function
         $('#btnSearch').click(function() {
-
+            switchPaginationUI();
             var user_code = $('#search_code').val();
             var user_name = $('#search_name').val();
             var user_department = $('#search_department').val();
@@ -174,29 +180,12 @@
             }
         });
 
-
+        // Event Filter Funcion
         $('#btnClearSearch').click(function() {
             $('#btnClearSearch').addClass('d-none');
             $('#search_code').val("");
             $('#search_name').val("");
             $('#search_department').val("");
-
-            $.ajax({
-                method: 'GET',
-                url: "{{route('users.clear_filter'," + locale + ")}}",
-                dataType: 'json',
-                data: {
-                    '_token': '{{csrf_token()}}',
-                },
-                success: function(res) {
-                    // console.log(res);
-                    filterToTable(res);
-
-                },
-                error: function() {
-                    console.log('Error')
-                }
-            });
         })
 
     });
@@ -226,11 +215,19 @@
                 console.log(value);
             });
             console.log(res);
+
+
         } else {
             tableRow =
                 '<tr><td align="center" colspan="7">Search Not Found</td></tr>';
             $('#dynamic-row').append(tableRow);
         }
+    }
+
+    function switchPaginationUI() {
+        $('#datatables_info').removeClass('d-none');
+        $('#datatables_paginate').removeClass('d-none');
+        $('.ui-paginate').addClass('d-none');
     }
 </script>
 @endsection

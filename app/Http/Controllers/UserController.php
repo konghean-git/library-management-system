@@ -13,7 +13,7 @@ class UserController extends Controller
         $users = User::select('users.khmer_name', 'users.latin_name', 'users.gender', 'user_departments.name as department_name', 'users.code', 'users.phone', 'users.email')
             ->join('user_departments', 'users.department_id', 'user_departments.id')
             ->orderBy('users.id', 'asc')
-            ->get();
+            ->paginate(3);
 
         return view('users.user', ['users' => $users]);
     }
@@ -39,15 +39,10 @@ class UserController extends Controller
     }
 
 
-    public function clear_filter()
-    {
-        $users = User::select('users.khmer_name', 'users.latin_name', 'users.gender', 'user_departments.name as department_name', 'users.code', 'users.phone', 'users.email')
-            ->join('user_departments', 'users.department_id', 'user_departments.id')
-            ->orderBy('users.id', 'asc')
-            ->get();
-
-        return json_encode($users);
-    }
+    // public function clear_filter()
+    // {
+    //     return redirect(route('user.index', app()->getLocale()));
+    // }
 
     public function add_users()
     {

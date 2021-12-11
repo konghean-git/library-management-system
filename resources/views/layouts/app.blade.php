@@ -36,16 +36,16 @@
                     @guest
                     @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{ route('login',app()->getLocale()) }}"><i class="mdi mdi-login"></i>{{ __('Login') }}</a>
+                        <a class="nav-link font-hanuman text-secondary" href="{{ route('login',app()->getLocale()) }}"><i class="mdi mdi-login"></i>{{ __('Login') }}</a>
                     </li>
                     @endif
                     @endguest
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{ route('home',app()->getLocale()) }}">{{ __('Dashboard') }}</a>
+                        <a class="nav-link font-hanuman text-secondary" href="{{ route('home',app()->getLocale()) }}">{{ __('Dashboard') }}</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link text-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link font-hanuman text-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->latin_name }}
                         </a>
 
