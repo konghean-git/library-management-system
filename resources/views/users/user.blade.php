@@ -32,9 +32,9 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3 px-3">
-                <button type="button" class="btn btn-success text-white btn-md font-sidebar">
+                <a href="{{route('user.create',app()->getLocale())}}" class="btn btn-success text-white btn-md font-sidebar">
                     <i class="mdi mdi-plus"></i> {{__('Add New')}}
-                </button>
+                </a>
 
                 <div class="">
 
@@ -50,15 +50,19 @@
             <div class="px-3">
                 <form method="POST" class="form d-flex">
                     <div class="row w-100 border pt-3">
+                        @if (session('success'))
+                        <div class="alert px-2">
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        </div>
+
+                        @endif
                         <div class="form-group row col-md-3 search-block">
                             <label for="fname" class="col-sm-3 font-sidebar text-end control-label col-form-label"> {{__('Code')}}</label>
                             <div class="col-sm-9 code_main_block">
                                 <input type="text" id="search_code" name="search_code" class="form-control font-sidebar" placeholder="{{ __('Enter ') }}{{ __('Code') }}" />
-                                <!-- <div class="code_search_block d-none">
-                                    <a class="search_code_result btn btn-sm bg-light w-100 text-start">RRLM0001</a>
-                                    <a class="search_code_result btn btn-sm bg-light w-100 text-start">RRLM0002</a>
-                                    <a class="search_code_result btn btn-sm bg-light w-100 text-start">RRLM0003</a>
-                                </div> -->
+
                             </div>
                         </div>
                         <div class="form-group row col-md-3 search-block">
@@ -107,7 +111,7 @@
                             <td class="font-hanuman">{{__($user->gender)}}</td>
                             <td class="font-hanuman">{{$user->department_name}}</td>
                             <td class="font-hanuman">{{$user->phone}}</td>
-                            <td class="font-hanuman">{{$user->email}}</td>
+                            <td class="font-hanuman">{{$user->email}} <a href="mailto: mokkong.1199@gmail.com?subject='Warning'"><i class="mdi mdi-gmail"></i></a></td>
                             <td class="font-hanuman">
                                 <a href="" title="មើល" class="btn btn-success text-white btn-sm font-sidebar">
                                     <i class="mdi mdi-eye"></i>
@@ -147,12 +151,13 @@
 
         // Event Filter Function
         $('#btnSearch').click(function() {
-            switchPaginationUI();
             var user_code = $('#search_code').val();
             var user_name = $('#search_name').val();
             var user_department = $('#search_department').val();
 
             if (user_code != "" || user_name != "" || user_department != "") {
+
+                switchPaginationUI();
 
                 $.ajax({
                     method: 'POST',
@@ -187,6 +192,11 @@
             $('#search_name').val("");
             $('#search_department').val("");
         })
+
+
+        setTimeout(function() {
+            $('.alert').fadeOut()
+        }, 5000);
 
     });
 
@@ -224,6 +234,7 @@
         }
     }
 
+    // Switching Pagination
     function switchPaginationUI() {
         $('#datatables_info').removeClass('d-none');
         $('#datatables_paginate').removeClass('d-none');

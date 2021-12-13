@@ -4,7 +4,7 @@
     "Search":"ស្វែងរក",
     "Import":"នាំចូល",
     "Export":"នាំចេញ",
-    "Code":"កូដ",
+    "Code":"លេខកូដ",
     "Khmer Name":"ឈ្មោះខ្មែរ",
     "Latin Name":"ឈ្មោះឡាតាំង",
     "Gender":"ភេទ",
@@ -31,5 +31,11 @@
     "Clear":"សម្អាត",
     "Books List":"បញ្ជីសៀវភៅ",
     "Category":"ប្រភេទសៀវភៅ",
-    "Department":"ប្រភេទសមាជិក"
+    "Create ":"បន្ថែម",
+    "Department":"ប្រភេទសមាជិក",
+    "Member Information":"ព័ត៌មានសមាជិក",
+    "Photo":"រូបថត",
+    "Address":"អាសយដ្ឋាន",
+    "Date of Birth":"ថ្ងៃ-ខែ-ឆ្នាំកំណើត",
+    "Select ":"ជ្រើសរើស"
 }

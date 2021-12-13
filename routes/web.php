@@ -30,6 +30,7 @@ Route::prefix('{language}')->group(function () {
         // Users
         Route::get('/users', [UserController::class, 'index'])->name('user.index');
         Route::post('/users', [UserController::class, 'filter_users'])->name('users.filter');
-        // Route::get('/users/clear-filter', [UserController::class, 'clear_filter'])->name('users.clear_filter');
+        Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/user/create-submit', [UserController::class, 'create_submit'])->name('user.create_submit');
     });
 });

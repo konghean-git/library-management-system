@@ -23,10 +23,11 @@ class CreateUsersTable extends Migration
             $table->foreign('department_id')->references('id')->on('user_departments');
             $table->string('address');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->date('date_of_birth');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_image')->default('user.jpg');
             $table->rememberToken();
             $table->timestamps();
         });
