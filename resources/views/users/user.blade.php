@@ -47,9 +47,9 @@
                 </div>
 
             </div>
-            <div class="px-3">
+            <div class="border mx-3">
                 <form method="POST" class="form d-flex">
-                    <div class="row w-100 border pt-3">
+                    <div class="row w-100 pt-3">
                         @if (session('success'))
                         <div class="alert px-2">
                             <div class="alert alert-success">
@@ -142,7 +142,6 @@
 <script>
     $(document).ready(function() {
 
-        var locale = $("#getLocale").val();
         $("#datatables").DataTable({
             "ordering": false
         });

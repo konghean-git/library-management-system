@@ -20,6 +20,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: font_hanuman;
+            src: url('{{asset("fonts/Hanuman Version 2.00.ttf")}}');
+        }
+
+        .font-sidebar {
+            font-family: font_hanuman;
+        }
+
+        .font-hanuman {
+            font-family: font_hanuman;
+        }
+
+        .font-size-sidebar {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr">
+<html dir="ltr" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -42,6 +42,24 @@
             width: 100%;
         }
     </style>
+    <style>
+        @font-face {
+            font-family: font_hanuman;
+            src: url('{{asset("fonts/Hanuman Version 2.00.ttf")}}');
+        }
+
+        .font-sidebar {
+            font-family: font_hanuman;
+        }
+
+        .font-hanuman {
+            font-family: font_hanuman;
+        }
+
+        .font-size-sidebar {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 
@@ -60,10 +78,10 @@
                         <img class="w-100" src="{{asset('assets/images/undraw-book.png')}}" alt="logo" />
                     </div>
 
-                    <div class="w-100 auth-box border border-2-light p-5">
+                    <div class="w-100 auth-box border border-2-light p-5 font-hanuman">
                         <div id="loginform">
                             <div class="text-center pt-3 pb-3">
-                                <span class="text-uppercase fs-3 font-bold">LogIn Form</span>
+                                <span class="text-uppercase fs-3 font-bold ">{{ __('Login Form') }}</span>
                             </div>
                             <form class="form-horizontal mt-3" id="loginform" method="POST" action="{{ route('login',app()->getLocale()) }}">
                                 @csrf
@@ -73,7 +91,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-success text-white h-100" id="basic-addon1"><i class="mdi mdi-account fs-4"></i></span>
                                             </div>
-                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control form-control-lg @error('code') is-invalid @enderror fs-5" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="" />
+                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control form-control-lg @error('code') is-invalid @enderror fs-5" placeholder="{{__('Usercode')}}" aria-label="Username" aria-describedby="basic-addon1" required="" />
                                             @error('code')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -84,7 +102,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-warning text-white h-100" id="basic-addon2"><i class="mdi mdi-lock fs-4"></i></span>
                                             </div>
-                                            <input type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror fs-5" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="" />
+                                            <input type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror fs-5" placeholder="{{__('Password')}}" aria-label="Password" aria-describedby="basic-addon1" required="" />
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -98,15 +116,15 @@
                                         <div class="form-group">
                                             <div class="pt-3">
                                                 <button class="btn btn-success w-100 text-white" type="submit">
-                                                    Login
+                                                    {{__('Login')}}
                                                 </button>
                                             </div>
                                             <div class="pt-3">
                                                 <a class="btn btn-info float-start" id="to-recover" href="{{route('welcome',app()->getLocale())}}">
-                                                    <i class="mdi mdi-arrow-left-bold"></i> Back
+                                                    <i class="mdi mdi-arrow-left-bold"></i> {{__('Back')}}
                                                 </a>
                                                 <a class="btn btn-info float-end" id="to-recover" type="button">
-                                                    <i class="mdi mdi-lock"></i> Forgot Password
+                                                    <i class="mdi mdi-lock"></i> {{__('Forgot Password')}}
                                                 </a>
                                             </div>
                                         </div>

@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<div class="d-flex justify-content-between px-2">
+<div class="d-md-flex justify-content-between px-2">
     <div class="show-info">
         <span>Showing {{$paginator->firstItem()}} to {{$paginator->lastItem()}} of {{$paginator->total()}} entities</span>
     </div>

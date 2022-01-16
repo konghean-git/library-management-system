@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title')
-Dash
+@section('page_title')
+{{__('Dashboard')}}
 @endsection
 
 @section('content')

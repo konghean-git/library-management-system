@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/push', [UserController::class, 'add_users']);
 
-Route::redirect('/', 'en');
+Route::redirect('/', 'kh');
 
 
 Route::prefix('{language}')->group(function () {

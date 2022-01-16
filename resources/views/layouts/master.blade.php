@@ -87,10 +87,29 @@
             </span>
           </a>
           <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-          <ul class=" navbar-nav float-end d-block d-md-none">
+          <ul class=" navbar-nav float-end d-block d-md-none d-flex">
             <!-- ============================================================== -->
             <!-- Comment -->
             <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle selected-lang" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <img style="width: 30px;" src="" alt="flag">
+                <span>
+                  <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item second-lang" href="#">
+                    <img style="width: 30px;" src="" alt="Flag"> <span class="px-2 lang-title">English</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item dropdown">
               <a class="
                     nav-link
@@ -101,7 +120,7 @@
                   " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{asset('assets/images/users/1.jpg')}}" alt="user" class="rounded-circle" width="31" />
               </a>
-              <ul class="dropdown-menu dropdown-menu-end user-dd animated w-50" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item font-hanuman px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> {{__('My Profile')}}</a>
                 <a class=" dropdown-item font-hanuman px-10 py-0" href="javascript:void(0)"><i class="mdi mdi-email me-1 ms-1"></i> {{__('Inbox')}}</a>
                 <div class="dropdown-divider"></div>
@@ -148,17 +167,22 @@
             <!-- Comment -->
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="mdi mdi-bell font-24"></i>
+              <a class="nav-link dropdown-toggle selected-lang" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img style="width: 30px;" src="" alt="flag">
+                <span>
+                  <i class="mdi mdi-chevron-down"></i>
+                </span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li> -->
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item second-lang" href="#">
+                    <img style="width: 30px;" src="" alt="Flag"> <span class="px-2 lang-title">English</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -365,6 +389,7 @@
 
   </div>
 
+
   <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
   <!-- <script src="{{asset('dist/js/jquery.ui.touch-punch-improved.js')}}"></script> -->
   <script src="{{asset('dist/js/jquery-ui.min.js')}}"></script>
@@ -383,6 +408,28 @@
   <script src="{{asset('assets/libs/moment/min/moment.min.js')}}"></script>
   <script src="{{asset('assets/libs/fullcalendar/dist/fullcalendar.min.js')}}"></script>
   <script src="{{asset('dist/js/pages/calendar/cal-init.js')}}"></script>
+  <script>
+    var locale = $("#getLocale").val();
+    var main_url = window.location.origin;
+    var flag_path = main_url + "/assets/images/" + locale + ".png";
+    $('.selected-lang').find('img').attr('src', flag_path);
+    if (locale == 'en') {
+      $('.second-lang').find('img').attr('src', main_url + "/assets/images/kh.png");
+      $('.lang-title').text('Khmer');
+    } else {
+      $('.second-lang').find('img').attr('src', main_url + "/assets/images/en.png");
+      $('.lang-title').text('English');
+    }
+    $(document).ready(function() {
+      $('.second-lang').click(function() {
+        if (locale == 'en') {
+          location.replace("{{ route(Route::currentRouteName(),'kh') }}");
+        } else {
+          location.replace("{{ route(Route::currentRouteName(),'en') }}");
+        }
+      });
+    });
+  </script>
   @yield('script')
 </body>
 
